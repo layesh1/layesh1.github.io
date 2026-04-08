@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Root tokens ─────────────────────────────────────── */
+:root {
+  --cream: #F7F0E3;
+  --parchment: #EDE0C8;
+  --dark: #1C1917;
+  --muted: #6B6458;
+  --blue: #5BC8E8;
+  --purple: #8B5CF6;
+  --green: #4D7C5A;
+  --rose: #C9605A;
+  --border: #2D2D2D;
+}
+
+/* ── Base ────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Textures ─────────────────────────────────────────
+   Placeholder CSS textures — replace with your Figma
+   exports by adding actual image files to public/assets/
+   and updating the background-image below.
+──────────────────────────────────────────────────────── */
+
+/* Subtle paper grain overlay (applied via ::before on sections) */
+.texture-paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  z-index: 0;
+}
+
+/* Green gingham CSS pattern */
+.bg-gingham {
+  background-color: #e8f0e4;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(90,140,80,0.12) 20px,
+      rgba(90,140,80,0.12) 21px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 20px,
+      rgba(90,140,80,0.12) 20px,
+      rgba(90,140,80,0.12) 21px
+    );
+}
+
+/* Lace border top utility */
+.lace-top {
+  border-top: 3px solid var(--border);
+  position: relative;
+}
+.lace-top::before {
+  content: '✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: inherit;
+  padding: 0 12px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.15;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.mono {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── Scrapbook card ───────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 2px;
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.card-tape::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 60px;
+  height: 22px;
+  background: rgba(91, 200, 232, 0.45);
+  border-radius: 2px;
+}
+
+/* ── Washi tape colors ────────────────────────────────── */
+.tape-blue  { background: rgba(91,  200, 232, 0.45); }
+.tape-green { background: rgba(77,  124, 90,  0.35); }
+.tape-rose  { background: rgba(201, 96,  90,  0.35); }
+
+/* ── Timeline ────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .timeline-line { left: 24px; }
+}
+
+/* ── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 3px; }
+
+/* ── Skill badge ─────────────────────────────────────── */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 9999px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  background: #fff;
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+/* ── Link styles ─────────────────────────────────────── */
+.underline-link {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  color: var(--dark);
+  transition: color 0.15s;
+}
+.underline-link:hover { color: var(--purple); }
+
+/* ── Nav blur ────────────────────────────────────────── */
+.nav-blur {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(247, 240, 227, 0.88);
+}
