@@ -72,7 +72,46 @@ function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
       </h1>
 
       <div className="prose-lena">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        <ReactMarkdown
+          components={{
+            a({ href, children }) {
+              const text = String(children)
+              if (text === 'YOUTUBE' && href) {
+                const videoId = href.match(/[?&]v=([^&]+)/)?.[1]
+                if (videoId) {
+                  return (
+                    <span className="block my-6 aspect-video w-full">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${videoId}`}
+                        className="w-full h-full rounded-lg"
+                        style={{ aspectRatio: '16/9', display: 'block', border: 'none' }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title="YouTube video"
+                      />
+                    </span>
+                  )
+                }
+              }
+              return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
+            },
+            img({ src, alt }) {
+              return (
+                <span className="block my-8">
+                  <img
+                    src={src}
+                    alt={alt}
+                    className="w-full rounded-lg object-cover"
+                    style={{ maxHeight: '480px' }}
+                  />
+                  {alt && <span className="block text-center font-body text-xs text-muted mt-2 italic">{alt}</span>}
+                </span>
+              )
+            },
+          }}
+        >
+          {post.content}
+        </ReactMarkdown>
       </div>
     </motion.div>
   )
