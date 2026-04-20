@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
+import remarkBreaks from 'remark-breaks'
 import { posts, type Post } from '../posts'
 import ConfessionJar from './ConfessionJar'
 
@@ -24,13 +25,12 @@ function PostCard({ post, onClick, index }: { post: Post; onClick: () => void; i
       className="card group cursor-pointer hover:shadow-[6px_6px_0_#5BC8E8] transition-shadow duration-200"
       onClick={onClick}
     >
-      <div className="flex items-center justify-between gap-3 mb-3">
+      <div className="flex items-center gap-3 mb-3">
         <span
           className={`mono text-xs px-2 py-0.5 rounded-full border ${TAG_COLORS[post.tag] ?? 'bg-muted/10 text-muted border-muted/30'}`}
         >
           {post.tag}
         </span>
-        <span className="mono text-xs text-muted">{formatDate(post.date)}</span>
       </div>
 
       <h3 className="font-display font-bold text-base leading-snug mb-2 group-hover:text-blue-600 transition-colors">
@@ -64,7 +64,6 @@ function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
         >
           {post.tag}
         </span>
-        <span className="mono text-xs text-muted">{formatDate(post.date)}</span>
       </div>
 
       <h1 className="font-display font-bold text-3xl md:text-4xl leading-tight mb-8">
@@ -73,6 +72,7 @@ function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
 
       <div className="prose-lena">
         <ReactMarkdown
+          remarkPlugins={[remarkBreaks]}
           components={{
             a({ href, children }) {
               const text = String(children)
@@ -222,6 +222,9 @@ export default function Blog() {
         .prose-lena ul { list-style: disc; padding-left: 1.5em; margin-bottom: 1.2em; }
         .prose-lena li { font-family: 'Lora', serif; font-size: 1rem; line-height: 1.7; margin-bottom: 0.4em; }
         .prose-lena a  { text-decoration: underline; text-decoration-style: dotted; }
+        .prose-lena blockquote { border-left: 3px solid #C4A882; margin: 2em 0; padding: 0.8em 1.4em; background: #F0E8D8; border-radius: 0 6px 6px 0; font-family: 'Lora', serif; font-size: 0.93rem; line-height: 1.9; color: #3D3530; }
+        .prose-lena blockquote p { font-size: 0.93rem; margin-bottom: 0.6em; color: #3D3530; }
+        .prose-lena blockquote em { color: #5a4a3a; }
       `}</style>
     </section>
   )
