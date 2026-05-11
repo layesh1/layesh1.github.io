@@ -264,7 +264,7 @@ export default function Home() {
             className="bg-white/80 border-2 border-border rounded-sm p-5 shadow-[3px_3px_0_#2D2D2D]"
           >
             <p className="font-body text-base leading-relaxed text-dark">
-              I'm a senior at UNC Charlotte graduating May 2026, triple-majoring in{' '}
+              I'm a recent May 2026 grad, triple-majoring in{' '}
               <span className="font-semibold underline decoration-dotted underline-offset-2">
                 Data Science, Political Science, and International Studies
               </span>{' '}
@@ -274,7 +274,9 @@ export default function Home() {
               My interests live at the intersection of data and policy — especially
               in national security and human rights. I co-founded UNC Charlotte's
               Security & Intelligence Student Organization, and studying Urdu and
-              Farsi has completely reshaped how I think about open-source research.
+              Farsi has reshaped how I think about open-source research. I'm
+              interested in pop culture critiques, especially in regards to music
+              (I love every genre).
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
               <a

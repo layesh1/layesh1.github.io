@@ -31,6 +31,14 @@ const featured = [
     href: 'https://credentials.clscholarship.org/aa831498-aa7b-447c-a240-a5068249f57e#acc.PaYBpxsw',
   },
   {
+    type: 'Press',
+    headline: 'UNC Charlotte Data Science Students Secure Third Place in Global WiDS 2026 Datathon',
+    org: 'UNC Charlotte School of Data Science',
+    excerpt:
+      'UNC Charlotte data science students secured third place in the global Women in Data Science (WiDS) 2026 Datathon challenge, competing against teams worldwide.',
+    href: 'https://sds.charlotte.edu/2026/05/07/unc-charlotte-data-science-students-secure-third-place-in-global-wids-2026-datathon-challenge/',
+  },
+  {
     type: 'Feature',
     headline: 'Overcoming Anxiety and Achieving Excellence',
     org: 'UNC Charlotte — by Deonna Dickens, Apr 8 2025',

@@ -41,6 +41,18 @@ const projects: Project[] = [
     pdf: './assets/war-on-drugs.pdf',
   },
   {
+    id: 'affective-polarization',
+    title: 'Affective Polarization and Free Speech Among College Students at UNC Charlotte',
+    description:
+      'Political Science thesis examining affective polarization and its relationship to campus free speech attitudes using survey data from 779 undergraduates at UNC Charlotte.',
+    fullDescription:
+      'Political Science thesis examining affective polarization and its relationship to campus free speech attitudes using survey data from 779 undergraduates at UNC Charlotte (Fall 2025). Affective polarization is operationalized through three theoretically distinct components — othering, moralizing, and social aversion. Analysis stages include Cronbach\'s alpha for scale reliability, independent-samples t-tests with Cohen\'s d effect sizes, exploratory dimensionality reduction via PCA and UMAP, and OLS regression with interaction terms. Findings reveal a pronounced partisan asymmetry: Democrats exhibit significantly higher affective polarization toward Republicans (d = 0.78), driven by social aversion (d = 0.92), while Republicans express greater support for restricting campus speech (d = 0.69).',
+    advisor:
+      'Advised by Dr. Jason Giersch, Department of Political Science and Public Administration, UNC Charlotte.',
+    tags: ['Political Psychology', 'Survey Analysis', 'OLS Regression'],
+    pdf: './assets/affective-polarization.pdf',
+  },
+  {
     id: 'minutes-matter',
     title: 'MinutesMatter — Agentic Wildfire Evacuation Platform',
     description:
