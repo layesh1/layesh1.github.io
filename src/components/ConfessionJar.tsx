@@ -1,5 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  'https://bcazwcpvglbmvmbdtcze.supabase.co',
+  'sb_publishable_ytnohFpZD6BX_ocHKfp0GA_rk3TPjO5',
+)
 
 /* ── Pre-seeded notes ── */
 const SEED_NOTES = [
@@ -17,13 +23,6 @@ const STICKY_IMGS: Record<string, string> = {
 const STICKY_KEYS = Object.keys(STICKY_IMGS)
 
 type Note = { id: string; bg: string; text: string }
-
-function loadUserNotes(): Note[] {
-  try { return JSON.parse(localStorage.getItem('lena-jar-notes') || '[]') } catch { return [] }
-}
-function saveUserNotes(notes: Note[]) {
-  localStorage.setItem('lena-jar-notes', JSON.stringify(notes))
-}
 
 /* ── Single sticky note display ── */
 function StickyNote({ note, rotation = 0 }: { note: Note; rotation?: number }) {
@@ -290,12 +289,20 @@ function HungryFish() {
 
 /* ── Main component ── */
 export default function ConfessionJar() {
-  const [userNotes, setUserNotes] = useState<Note[]>(loadUserNotes)
-  const allNotes = [...SEED_NOTES, ...userNotes]
+  const [dbNotes, setDbNotes] = useState<Note[]>([])
+  const allNotes = [...SEED_NOTES, ...dbNotes]
 
   const [viewIdx, setViewIdx] = useState<number | null>(null)
   const [writing, setWriting] = useState(false)
   const [justDropped, setJustDropped] = useState(false)
+
+  useEffect(() => {
+    supabase
+      .from('confession_notes')
+      .select('id, text, bg')
+      .order('created_at', { ascending: true })
+      .then(({ data }) => { if (data) setDbNotes(data) })
+  }, [])
 
   function pullNote() {
     const idx = Math.floor(Math.random() * allNotes.length)
@@ -310,11 +317,13 @@ export default function ConfessionJar() {
     setViewIdx(i => i === null ? 0 : (i - 1 + allNotes.length) % allNotes.length)
   }
 
-  function addNote(text: string, bg: string) {
-    const note: Note = { id: `user-${Date.now()}`, bg, text }
-    const next = [...userNotes, note]
-    setUserNotes(next)
-    saveUserNotes(next)
+  async function addNote(text: string, bg: string) {
+    const { data } = await supabase
+      .from('confession_notes')
+      .insert({ text, bg })
+      .select('id, text, bg')
+      .single()
+    if (data) setDbNotes(prev => [...prev, data])
     setJustDropped(true)
     setTimeout(() => setJustDropped(false), 2200)
   }
@@ -388,7 +397,7 @@ export default function ConfessionJar() {
               style={{ pointerEvents: 'none' }}
             >
               <div className="w-10 h-10 rounded-sm overflow-hidden shadow-md">
-                <img src={STICKY_IMGS[userNotes[userNotes.length - 1]?.bg ?? 'sticky1']} className="w-full h-full object-cover" alt="" />
+                <img src={STICKY_IMGS[dbNotes[dbNotes.length - 1]?.bg ?? 'sticky1']} className="w-full h-full object-cover" alt="" />
               </div>
             </motion.div>
           )}
