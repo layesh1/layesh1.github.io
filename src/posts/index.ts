@@ -81,4 +81,118 @@ Buckley's other songs, both lyrically and musically, also take heavy inspiration
 Even more striking is that NFAK and Buckley had both died in 1997. Buckley in May, NFAK just three months later in August. Two artists whose entire bodies of work were devoted to longing for something just out of reach, both gone before they could see how far their music would travel. A generation raised on social media found them anyway.
 `.trim(),
   },
+  {
+    slug: 'family-tradition',
+    title: 'The Rural Purge and the Changed Politicization of Country Music: A Family Tradition',
+    date: '2026-05-17',
+    tag: 'misc',
+    excerpt: "On the Rural Purge, the Pentagon-Nashville alliance, post-9/11 gatekeeping, and how country music was deliberately stripped of its diversity.",
+    content: `
+> "Country music singers / Have always been a real close family / But lately some of my kinfolks / Have disowned a few others and me / I guess it's because / I kinda changed my direction / Lord, I guess I went and broke their family tradition"
+>
+> — Hank Williams Jr., "Family Tradition"
+
+[YOUTUBE](https://www.youtube.com/watch?v=8ji_byLzeBk)
+
+---
+
+"I listen to everything… except for country music" has become a bit of a meme online. Increasingly over the years, country music has been strongly tied to specific cultural identities, stereotypes, and political leanings, making it hard to break into if you are not already in its established communities. Its growing exclusivity has made it easy for people to reject entire themes, lifestyles, or social groups without having to define their actual music taste. But country music was not always like this. The genre once carried the voices of coal miners, heartbroken drifters, poor Black and white Southerners alike, and sharp-tongued women who challenged the U.S. government's disapproval and neglectment of the poor South.
+
+The rejection of country music by marginalized and mainstream communities alike is a direct result of the deliberate actions of those in power and with money. By television executives, Pentagon strategists, record labels, and radio programmers, are all guilty of taking collectively stripped country music of its diversity and boxed it into the narrow, politically charged genre increasingly associated with conservatism.
+
+Funnily enough, a single family helps us better understand how this happened.
+
+---
+
+![I listen to everything except country music](/assets/country-meme.jpg)
+
+## The Dynasty
+
+The Hank Williams family is a country music dynasty spanning three generations, beginning with the deeply influential Hank Williams Sr. (1923–1953). Williams Sr. is widely considered one of the most important figures in American music history. He wrote with a raw, unpolished honesty about drinking, loneliness, faith, and loss which were songs that resonated across racial and class lines in the postwar South. Artists from Elvis Presley to Ray Charles cited him as foundational to their own sound. He was both country music's brightest star and its most tragic cautionary tale, dying at 29 in the back of a Cadillac on New Year's Day 1953. The Grand Ole Opry had already fired him by then.
+
+[YOUTUBE](https://www.youtube.com/watch?v=bjCoKslQOEs)
+
+His son, Hank Williams Jr. (b. 1949), grew up under less than ideal circumstances. He was a child performer forced to replicate his father's sound before he could form his own. Modern day equivalent of Miley & Billy Ray Cyrus (joke). By the late 1970s, he broke away, blending Southern rock, blues, and outlaw country into something distinctly his. "Family Tradition" was his declaration of independence: an acknowledgment that the Nashville establishment viewed him as a rebel, and that he was fine with it. He performed on *Hee Haw* multiple times before its ultimate cancellation, and his career would span the full arc of country musics transformation, from outlaw rebellion to Monday Night Football anthem to political lightning rod.
+
+His son, hang with me now, Hank Williams III (b. 1972) took the rebellion even further. His tune reminds of an edgy, 2010s Southern rock-punk stereotype who is desperate to find his own identity in a changing landscape. Where his father pushed against Nashville's expectations, III rejected the entire machine. He fused outlaw country with punk rock, metal, and psychobilly, played live shows that split into three wildly different sets, and openly criticized the Grand Ole Opry for how it had treated his grandfather decades earlier. His own record label, Curb Records, told him his original songs were "too country" for country radio and pushed him to record covers instead. Think about that: a Williams being told he was too country for country. If his grandfather built the house, and his father remodeled it, Hank III set it on fire and played a show in the yard. The family tradition, it turns out, was always about tension with the industry itself.
+
+---
+
+## The Rural Purge
+
+I partially blame the Rural Purge. In the early 1970s, CBS undertook a mass cancellation of rural-themed television programming that reshaped how America consumed, and thought about, its own culture. Despite strong ratings, shows like *Hee Haw*, *The Beverly Hillbillies*, *Green Acres*, *Mayberry R.F.D.*, and *Lassie* were axed so the network could chase younger, urban, and more affluent advertising demographics. *Hee Haw* was ranked 16th in the nation when it was canceled. *Mayberry R.F.D.* was 15th. These were not failing shows. They were profitable shows with the wrong audience.
+
+*Hee Haw* was an old, Southern, SNL-style program that ran from 1969 to 1993, blending country music performances with rural, corny sketch comedy. It was one of the few places on national television where country artists could reach a broad, mixed audience, where the music existed alongside humor and community rather than ideology. Hank Williams Jr. had performed on the show multiple times.
+
+[YOUTUBE](https://www.youtube.com/watch?v=e-eKZl7g8X0)
+
+CBS head Fred Silverman replaced the canceled lineup with what the industry called "relevant" programming, urban, socially conscious comedies like *All in the Family* and *The Mary Tyler Moore Show*. These were good shows. But as historian Sara K. Eskridge, author of *Rube Tube: CBS and Rural Comedy in the Sixties*, has argued, the purge severed rural America's representation on mainstream television in a way that was never fully repaired. The message, whether intended or not, was clear: rural culture was unsophisticated, uncommercial, and expendable. *Hee Haw* survived another 22 years in syndication, proof that the audience was still there. The networks just did not want them anymore.
+
+The Rural Purge did not kill country music, but it helped isolate it. Once rural culture lost its foothold in mainstream entertainment, country music became one of the few remaining cultural spaces where rural and Southern identity could be expressed at scale. That concentration would make the genre easier to capture, and weaponize, in the decades to come.
+
+---
+
+## The Pentagon Discovers Nashville
+
+In his 2024 book *Cold War Country: How Nashville's Music Row and the Pentagon Created the Sound of American Patriotism*, named one of Rolling Stone's Best Music Books of 2024, historian Joseph M. Thompson documents how Nashville's business leaders and the Pentagon built a mutually beneficial relationship that transformed both the genre and the concept of American patriotism itself. Beginning in the 1950s, the military flooded Armed Forces Radio with country music, hosted concert tours at bases around the world, and recruited country artists to support enlistment campaigns. By the early 1960s, country music recruitment spots accounted for more than one-third of all musical recruitment programming on television.
+
+The campaign went beyond just playing songs. In 1965, *Billboard* reported that the U.S. Armed Forces had launched an initiative in Europe to present country music as "an integral part of the American cultural heritage and of the American way of life." The military even banned the use of the words "hick" and "hillbilly" on its airwaves, requiring disc jockeys to refer to the genre as "country," "C&W," or, tellingly, "the music of America." The Country Music Association cultivated direct relationships with Armed Forces Radio disc jockeys to ensure Nashville artists received heavy rotation.
+
+Nashville got a massive, captive, global audience of servicemembers and their families. The Pentagon got a genre that could sell military service as patriotic duty wrapped in relatable, working-class authenticity. But the partnership had consequences that outlasted the Cold War. As Thompson argues, the alliance gave an economic boost to the white-dominated sounds of country music while simultaneously marginalizing Black artists and fueling divisions over the meaning of patriotism. Country music did not just happen to become the soundtrack of American militarism. It was positioned there, on purpose, for profit.
+
+---
+
+## 9/11 and the Point of No Return
+
+If the Pentagon-Nashville alliance built the infrastructure, September 11th flipped the switch.
+
+In the weeks and months following the attacks, country radio became the dominant vehicle for a very specific kind of American grief one that blurred seamlessly into rage, nationalism, and eventually, war support. Alan Jackson's "Where Were You (When the World Stopped Turning)" captured genuine collective shock. But the genre quickly moved past mourning. Toby Keith wrote "Courtesy of the Red, White, and Blue (The Angry American)" in twenty minutes after the attacks, and it became one of the defining cultural artifacts of the post-9/11. It crystallized a particular emotional response and dared anyone to push back.
+
+Someone did push back. In 2003, Natalie Maines of the Dixie Chicks told a London concert audience that the group was "ashamed" to be from the same state as President Bush, just as the U.S. invasion of Iraq began. The backlash was swift and coordinated. All 42 country radio stations operated by Cumulus Media banned the Dixie Chicks from their playlists. Fans organized CD-burning events. Toby Keith displayed a photoshopped image of Maines alongside Saddam Hussein as a concert backdrop. In a poll by a Georgia radio station, 76% of listeners said they wanted to return their Chicks albums.
+
+[YOUTUBE](https://www.youtube.com/watch?v=HzeQmOYdFqU)
+
+The Dixie Chicks controversy was a public enforcement of ideological boundaries within the genre. The message to every country artist watching was unmistakable: dissent from the political consensus, and the industry will erase you. Country music had always had political currents, but post-9/11, it became one of the only genres in American popular music where a single political statement could end a career overnight. The space between "country music fan" and "conservative" collapsed, not because every listener felt that way, but because the industry's gatekeepers enforced it.
+
+---
+
+## Who Was Always Here (And Who Got Pushed Out)
+
+The irony of country music's modern identity as a genre for white, conservative America is that Black musicians were central to its creation. Every foundational element of the genre, the banjo (derived from West African instruments), the blues progressions, the call-and-response vocal traditions, the rhythmic guitar techniques, traces back to African and African American musical traditions.
+
+DeFord Bailey, a Black harmonica player, was one of the most frequent performers on Nashville's WSM radio and helped give rise to the Grand Ole Opry in 1927. But his race was deliberately obscured from radio audiences, and when he toured, Jim Crow forced him into separate accommodations. The genre itself was manufactured as a racial category: in the 1920s, record executives split Southern music into "hillbilly" (marketed to white audiences) and "race music" (marketed to Black audiences), even though Black and white Southerners in the rural South often played and enjoyed the same music.
+
+That structural exclusion never fully went away. The Country Music Association, founded in 1958, oriented the genre toward a white, suburban, adult audience as part of a deliberate "respectability" campaign during a period when Nashville was consolidating its grip on the industry. Since the Country Music Hall of Fame's founding in 1961, only three Black artists have been inducted. Only one Black artist, Charley Pride, in 1971, had ever won CMA Entertainer of the Year. That was over fifty years ago.
+
+When Beyoncé released *Cowboy Carter* in 2024, an album featuring collaborations with Dolly Parton and Willie Nelson, with "Texas Hold 'Em" making her the first Black woman to top the Hot Country Songs chart, while the CMA Awards did not nominate it in a single category. Meanwhile, Post Malone's country crossover album received four nominations the same year. *Cowboy Carter* went on to win Album of the Year and Best Country Album at the Grammys, but the CMA snub reinforced what many already understood: the industry's gatekeeping was alive, and it had a pattern.
+
+---
+
+## Breaking the Family Tradition
+
+Country musics Black roots were systematically erased by an industry built on Jim Crow-era marketing categories that were never corrected or fully understood by the public.
+
+"I listen to everything except country" is not really a statement about music. It is a statement about what country music has come to represent, and that representation was constructed, deliberately, by people who had more to gain from exclusion than inclusion.
+
+---
+
+### Sources
+
+- Thompson, Joseph M. *Cold War Country: How Nashville's Music Row and the Pentagon Created the Sound of American Patriotism.* UNC Press, 2024. [JSTOR](https://www.jstor.org/stable/10.5149/9781469678382_thompson) | [Project MUSE](https://muse.jhu.edu/book/123661)
+- ["The History Behind Country Music's Love of the Military." *TIME*, 2024.](https://time.com/6985662/country-music-patriotism-military-money/)
+- ["Country Music Has Long Been Political." *TIME*, 2025.](https://time.com/7337909/country-music-political-history/)
+- ["Black Artists Built Country Music — And Then It Left Them Behind." *TIME*, 2019.](https://time.com/5673476/ken-burns-country-music-black-artists/)
+- ["History Explains the Backlash to Beyoncé's Cowboy Carter." *TIME*, 2024.](https://time.com/6965367/cowboy-carter-black-country-history/)
+- ["With All Eyes on Country Music, Will Black Nashville Get the Reckoning It Deserves?" *NPR*, 2021.](https://www.npr.org/2021/02/19/968763249/with-all-eyes-on-country-music-will-black-nashville-get-the-reckoning-it-deserve)
+- [Chatter Podcast: "The Pentagon's Alliance with the Country Music Industry." *Lawfare*, 2024.](https://www.lawfaremedia.org/article/chatter-the-pentagon-s-alliance-with-the-country-music-industry-with-joseph-thompson)
+- ["Norman Lear and the Era That Erased Rural America from TV." *Daily Yonder*, 2024.](https://dailyyonder.com/commentary-for-good-or-bad-norman-lear-all-in-the-family-helped-erase-rural-america-from-tv/2024/02/22/)
+- [Toby Keith & The Chicks: Songs and Words During the War on Terror. *TeachRock*.](https://teachrock.org/lesson/toby-keith-the-chicks-songs-and-words-during-the-war-on-terror/)
+- ["Are You Sure Hank Done It This Way? Outlaw Country's Search for Authenticity." *Society for US Intellectual History*, 2018.](https://s-usih.org/2018/07/are-you-sure-hank-done-it-this-way-outlaw-countrys-search-for-authenticity-from-the-sixties-counterculture-to-trumps-america-guest-post-by-matt-linton/)
+- ["Beyoncé, American Requiem, and Reclaiming Genre." *African American Intellectual History Society*, 2024.](https://www.aaihs.org/beyonce-ameriican-requiem-and-reclaiming-genre/)
+- [Identity and the Country Genre in Beyoncé's Cowboy Carter. *UT Austin*, 2024.](https://repositories.lib.utexas.edu/bitstreams/7756f314-7546-44aa-86e5-217549c4767c/download)
+- ["From Love-Struck Outlaws to Flag-Waving Patriots." *Afterglow ATX*, 2022.](https://www.afterglowatx.com/blog/2022/5/4/from-love-struck-outlaws-to-flag-waving-patriots-the-transformation-of-american-country-music-post-911)
+- [*Country Music Goes to War.* Project MUSE.](https://muse.jhu.edu/book/37067)
+- ["Black History in Country Music." *National Geographic*, 2025.](https://www.nationalgeographic.com/history/article/black-history-in-country-music)
+`.trim(),
+  },
 ]

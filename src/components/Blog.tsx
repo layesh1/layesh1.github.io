@@ -97,14 +97,13 @@ function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
             },
             img({ src, alt }) {
               return (
-                <span className="block my-8">
+                <span className="block my-8 mx-auto" style={{ maxWidth: '420px' }}>
                   <img
                     src={src}
                     alt={alt}
                     className="w-full rounded-lg object-cover"
-                    style={{ maxHeight: '480px' }}
+                    style={{ maxHeight: '360px' }}
                   />
-                  {alt && <span className="block text-center font-body text-xs text-muted mt-2 italic">{alt}</span>}
                 </span>
               )
             },
