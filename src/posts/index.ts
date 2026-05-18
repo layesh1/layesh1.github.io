@@ -120,8 +120,7 @@ His son, hang with me now, Hank Williams III (b. 1972) took the rebellion even f
 
 ## The Rural Purge
 
-I partially blame the Rural Purge. In the early 1970s, CBS undertook a mass cancellation of rural-themed television programming that reshaped how America consumed, and thought about, its own culture. Despite strong ratings, shows like *Hee Haw*, *The Beverly Hillbillies*, *Green Acres*, *Mayberry R.F.D.*, and *Lassie* were axed so the network could chase younger, urban, and more affluent advertising demographics. *Hee Haw* was ranked 16th in the nation when it was canceled. *Mayberry R.F.D.* was 15th. These were not failing shows. They were profitable shows with the wrong audience.
-
+I partially blame the Rural Purge. In the early 1970s, CBS undertook a mass cancellation of rural-themed television programming that reshaped how America consumed, and thought about, its own culture. Despite strong ratings, shows like *Hee Haw*, *The Beverly Hillbillies*, *Green Acres*, *Mayberry R.F.D.*, and *Lassie* were axed so the network could chase younger, urban, and more affluent advertising demographics. *Hee Haw* was ranked 16th in the nation when it was canceled. *Mayberry R.F.D.* was 15th.
 *Hee Haw* was an old, Southern, SNL-style program that ran from 1969 to 1993, blending country music performances with rural, corny sketch comedy. It was one of the few places on national television where country artists could reach a broad, mixed audience, where the music existed alongside humor and community rather than ideology. Hank Williams Jr. had performed on the show multiple times.
 
 [YOUTUBE](https://www.youtube.com/watch?v=e-eKZl7g8X0)
