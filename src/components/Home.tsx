@@ -271,11 +271,10 @@ export default function Home() {
               (Go Niners!).
             </p>
             <p className="font-body text-base leading-relaxed text-dark mt-3">
-              My interests live at the intersection of data and policy — especially
-              in national security and human rights. I co-founded UNC Charlotte's
-              Security & Intelligence Student Organization, and studying Urdu and
-              Farsi has reshaped how I think about open-source research. I'm
-              interested in pop culture critiques, especially in regards to music
+              My interests live at the intersection of data and policy.
+            </p>
+            <p className="font-body text-base leading-relaxed text-dark mt-3">
+              I'm interested in pop culture critiques, especially in regards to music
               (I love every genre).
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
