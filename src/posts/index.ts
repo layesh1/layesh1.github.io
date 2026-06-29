@@ -196,4 +196,88 @@ Country musics Black roots were systematically erased by an industry built on Ji
 - ["Black History in Country Music." *National Geographic*, 2025.](https://www.nationalgeographic.com/history/article/black-history-in-country-music)
 `.trim(),
   },
+{
+    slug: 'left-brain-right-brain-art-brain',
+    title: 'Left Brain, Right Brain, Art Brain, Smart Brain',
+    date: '2026-06-28',
+    tag: 'misc',
+    excerpt: 'Why are liberal arts separate from STEM? A history of how science was professionalized by feminizing its opposite — and what that cost us.',
+    content: `
+![Red fish, blue fish — a visual metaphor for the STEM/arts binary](/assets/blog-redfish-bluefish.png)
+
+The jokes about liberal arts majors being unemployable, illogical, and generally soft have been losing their edge lately. The same crowd that spent decades mocking humanities degrees is now watching computer science majors sweat through a job market that no longer needs them either. Vibe coding and AI have done in three years what feminist critiques of tech gatekeeping couldn't accomplish in thirty: made everyone suddenly nervous about the value of a CS degree. Ironically, as women have slowly started returning to computer science, the degree's cultural prestige has correspondingly dropped — now lumped in with business majors, dismissively easy, not *real* STEM.
+
+But the joke about "useless" liberal arts degrees was never really about logic or labor market outcomes. It was a dominance display. And to understand why that display takes the form it does — why STEM versus the arts became *the* social fault line of educated American life, why Siri is a woman but your AI assistant defaults male — you have to go back further than TED talks about disruption or Elon Musk's college dropout mythology.
+
+---
+
+## Before the Split: When Knowing Things Was Just Knowing Things
+
+For most of intellectual history, there was no STEM and no "arts." There was just knowledge, and the assumption was that a serious mind pursued all of it.
+
+Consider Omar Khayyam — Persian polymath, poet, and, depending on what century you encountered him in, either famous for his philosophical poetry collection the *Rubáiyát* or equally renowned as the astronomer who reformed the solar calendar and the mathematician who solved cubic equations. He did not think of these as separate careers. The same mind that meditated on impermanence and wine wrote treatises on algebra.
+
+![Omar Khayyam: "A hair divides what is false and true"](/assets/blog-omar-khayyam.png)
+
+This was not solely seen in this territory or time period. The European liberal arts tradition functioned the same way. From the medieval university onward, the curriculum bundled together grammar, rhetoric, logic, arithmetic, geometry, music, and astronomy. The Renaissance *uomo universale* — the "Renaissance man" — was premised entirely on this idea: that mastery of art, mathematics, philosophy, and natural science were all aspects of the same cultivated mind.
+
+![Leonardo da Vinci — self-portrait alongside the Vitruvian Man](/assets/blog-leonardo.png)
+
+Who is to say, after all, that science is less emotional than religion? That the desire to measure the stars is more rational than the desire to name them in verse?
+
+## Why, yes, I am more rational than thou!
+
+In the 19th century, as universities began granting formal degrees in scientific fields and scientific societies hardened their membership criteria, the borders between disciplines started calcifying. And professionalization had a casualty beyond interdisciplinarity: it was where women and people of color were systematically pushed out.
+
+Ironically, the very word "scientist" was coined in 1834 to describe a woman. Before the term existed, natural philosophy was understood as appropriate for women — partly because studying the natural world seemed safe, orderly, and almost domestic. Science was a hobby for passionate amateurs with leisure time, and women were expected to have leisure time.
+
+But the moment science began professionalizing — the moment it became a *career*, a source of status and institutional power — women were reclassified as incompatible with it. Professionals, by definition, could not be women. As colleges began offering degrees, doors closed.
+
+The intellectual cover came quickly. Late 19th century science obligingly produced research confirming women's unsuitability for the field. Darwin argued that evolutionary competition led to the higher development of male brains. Scholars like Carolyn Merchant and Londa Schiebinger have since documented how the birth of modern science in the late 17th century embodied a masculine ethos that was actively hostile to women's participation — one in which femininity became associated with the passive *object* of scientific investigation, as opposed to the active male *investigator*.
+
+The arts and humanities, meanwhile, became the leftover space. Science staked a claim to objectivity, rigor, and masculine authority. The arts absorbed feeling, subjectivity, and, by implicit association, women. This gendering of disciplines wasn't incidental to the arts-science split. In a lot of ways, it *was* the split.
+
+---
+
+## Sputnik: When Science Became Patriotism (and Art Became a Liability)
+
+The modern, institutional version of the divide has a fairly precise moment of acceleration: October 4, 1957, when the Soviet Union launched *Sputnik 1*.
+
+The shock was total. America suddenly understood itself as vulnerable in a way it hadn't since Pearl Harbor, and the diagnosis was educational failure. In 1958, Congress passed the National Defense Education Act (NDEA), pouring $1.1 billion into STEM fields. The National Science Foundation and the newly established NASA began funding research and programs designed to fuel the space race.
+
+For the first time, the *absence* of STEM education was framed as a national security threat. Science and engineering became synonymous with patriotism, strength, and readiness. The humanities and arts were implicitly recast as leisure — nice to have, but not what America needed to win.
+
+Crucially, the gendering that had already been building accelerated here. Women, already pushed toward arts and humanities as the "appropriate" alternative to professional scientific careers, now populated those fields in even greater numbers. And as more women populated the humanities and more men populated STEM, the cultural coding of each field as gendered intensified, making it harder to cross in either direction. When women's lower STEM representation eventually became a talking point, the explanation offered was always "preference" and "inclination" — rarely the decades of structural feedback loops that had produced those patterns.
+
+![STEM enrollment by gender, 2017–2018: Computer Sciences and Engineering & Technology at 81% male](/assets/blog-stem-stats.png)
+
+---
+
+## The Computer Science Case Study
+
+Women were the original programmers. They were literally called "computers." During World War II, the Bletchley Park codebreakers — largely women — performed some of the most consequential mathematical and analytical work of the 20th century. In the early decades of computing, women made up a substantial portion of the field's workforce precisely *because* programming was considered clerical work: detail-oriented, painstaking, not prestigious enough for men to bother with.
+
+In the 1980s, the video game arcade, the stereotypes of the male hacker, the basement gamer, the volatile genius-programmer replaced older images of the female computer. According to Nathan Ensmenger, the association of masculine personality characteristics with innate and intuitive programming ability helped create an occupational culture in which female programmers were seen as exceptional or marginal. A field that was female-coded became male-coded within a few decades — not through some natural sorting of aptitude, but through deliberate cultural construction and selective gatekeeping.
+
+As women have slowly, painstakingly started returning to computer science over the past decade, the degree's cultural prestige has started dropping. The same people who spent years defending CS as a rigorous, elite field now casually describe it as overrated, overcrowded, and brainrotted by AI. On one hand, the overtaking of AI and vibe coding as to rotting the logic behind code exists, but on the other hand — has the resurge of women in coding also added to this interpretation or implicit bias?
+
+---
+
+## The Chilly Climate That Never Really Warmed
+
+Women in STEM today report what researchers have termed a "chilly climate": social exclusion, men gatekeeping friend groups and professional networks, a pervasive "dude culture" in engineering and tech that frames technical expertise as fundamentally aligned with heteronormative masculinity. Research among over 1,200 STEM professionals found empirical evidence of how cross-gender social exclusion actively contributes to this environment. Queer and feminized identities get coded as incompatible with being a "serious" STEM professional — not through explicit policy, but through the accumulated weight of who gets invited to lunch, who gets credit in meetings, whose contributions get attributed correctly.
+
+The digital assistants are their own kind of evidence. Siri is a woman. Maps navigation voices default female. Customer service chatbots are gendered female. But Claude and ChatGPT — the "intelligent" ones, the ones associated with reasoning and capability — their default personas skew male. Servitude, we've decided, should sound like a woman. Intelligence should sound like a man.
+
+The relatively recent push to add Arts back into STEM — to turn it into STEAM — sounds like progress. And in some ways it is. But it's also an admission of how thoroughly the Cold War framing succeeded. The fact that "adding the arts back" is treated as a radical proposal — that it requires a movement and a new acronym and active advocacy — tells you everything about how normalized the divorce became.
+
+We did not always think this way. The Renaissance didn't. The Islamic Golden Age didn't. The early American university didn't. The modern division between STEM and the arts is a historically specific, politically motivated, gender-coded reorganization of intellectual prestige — one that professionalized science by feminizing its opposite, that militarized education by making creativity into a luxury, and that has spent the better part of a century insisting that its hierarchies are natural.
+
+The traits associated with "real" science — rigor, abstraction, objectivity, detachment — were systematically gendered male. The traits associated with art — emotion, interpretation, subjectivity, beauty — were systematically gendered female, and then ranked accordingly. The split was ideological, and like most ideologies, it worked best when it stopped looking like one.
+
+---
+
+*Sources: Wills, JSTOR Daily (on the coinage of "scientist"); Nathan Ensmenger, on gender and computing culture; Carolyn Merchant and Londa Schiebinger, on the gendered origins of modern science; research on chilly climate dynamics among STEM professionals (n=1,247); National Defense Education Act (1958); History of STEAM and the Morrill Act of 1862.*
+`.trim(),
+  },
 ]
