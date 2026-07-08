@@ -5,6 +5,7 @@ import Research from './components/Research'
 import Achievements from './components/Achievements'
 import Blog from './components/Blog'
 import Footer from './components/Footer'
+import MusicPlayer from './components/MusicPlayer'
 import { ExitModalProvider } from './components/ExitModal'
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Blog />
       </main>
       <Footer />
+      <MusicPlayer />
     </ExitModalProvider>
   )
 }

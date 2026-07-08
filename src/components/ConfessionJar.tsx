@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type CSSProperties } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { createClient } from '@supabase/supabase-js'
 
@@ -7,64 +7,74 @@ const supabase = createClient(
   'sb_publishable_ytnohFpZD6BX_ocHKfp0GA_rk3TPjO5',
 )
 
-/* ── Pre-seeded notes ── */
-const SEED_NOTES = [
-  { id: 'seed-1', bg: 'sticky1', text: 'erm....' },
-  { id: 'seed-2', bg: 'sticky3', text: 'onika burger' },
+type Note = { id: string; name: string; subject: string; text: string }
+
+/* ── General note icon — the rose-gold camera peeking out of the fishbowl ── */
+const NOTE_ICON = './assets/note-icon.png'
+
+/* ── Floating charm accents around the pager screen ── */
+const CHARM_IMAGES = [
+  './assets/charms/notes-heart.png',
+  './assets/charms/flower-1.png',
+  './assets/charms/flower-2.png',
+  './assets/charms/vine-1.png',
+  './assets/charms/vine-2.png',
+  './assets/charms/border-arch.png',
 ]
 
-const STICKY_IMGS: Record<string, string> = {
-  sticky1: './assets/sticky1.png',
-  sticky2: './assets/sticky2.png',
-  sticky3: './assets/sticky3.png',
-  sticky4: './assets/sticky4.png',
+const CHARM_SLOTS = [
+  { className: 'absolute -top-4 -left-7', rotate: -14, width: 32, delay: 0 },
+  { className: 'absolute -top-6 -right-6', rotate: 10, width: 30, delay: 0.3 },
+  { className: 'absolute -bottom-8 left-1/2 -translate-x-1/2', rotate: -6, width: 26, delay: 0.6 },
+]
+
+function shuffled<T>(arr: T[]): T[] {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
 }
 
-const STICKY_KEYS = Object.keys(STICKY_IMGS)
+function PagerCharms() {
+  const [charms] = useState(() => shuffled(CHARM_IMAGES))
 
-type Note = { id: string; bg: string; text: string }
-
-/* ── Single sticky note display ── */
-function StickyNote({ note, rotation = 0 }: { note: Note; rotation?: number }) {
   return (
-    <div className="relative select-none" style={{ transform: `rotate(${rotation}deg)`, width: 220, height: 220 }}>
-      <img
-        src={STICKY_IMGS[note.bg] ?? STICKY_IMGS.sticky1}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover rounded-sm"
-        draggable={false}
-      />
-      <div
-        className="absolute inset-0 flex items-center justify-center p-6"
-        style={{ paddingTop: '2.5rem' }}
-      >
-        <p
-          className="font-body text-sm text-center leading-snug"
-          style={{
-            fontFamily: "'Lora', Georgia, serif",
-            color: '#2D2417',
-            fontSize: '0.78rem',
-            lineHeight: 1.55,
-            textShadow: 'none',
-          }}
-        >
-          {note.text}
-        </p>
-      </div>
-    </div>
+    <>
+      {CHARM_SLOTS.map((slot, i) => (
+        <motion.img
+          key={i}
+          src={charms[i]}
+          alt=""
+          draggable={false}
+          className={`${slot.className} pointer-events-none select-none`}
+          style={{ width: slot.width, transform: `rotate(${slot.rotate}deg)` }}
+          animate={{ y: [0, -5, 0] }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: slot.delay }}
+        />
+      ))}
+    </>
   )
 }
 
-/* ── Write-a-note modal ── */
-function WriteNoteModal({ onSubmit, onClose }: { onSubmit: (text: string, bg: string) => void; onClose: () => void }) {
+/* ── Retro "Mail" compose window ── */
+function MailComposeModal({
+  onSubmit,
+  onClose,
+}: {
+  onSubmit: (name: string, subject: string, text: string) => void
+  onClose: () => void
+}) {
+  const [name, setName] = useState('')
+  const [subject, setSubject] = useState('')
   const [text, setText] = useState('')
-  const [chosen, setChosen] = useState(STICKY_KEYS[Math.floor(Math.random() * STICKY_KEYS.length)])
-  const maxLen = 140
+  const maxLen = 200
 
-  function submit() {
+  function send() {
     const trimmed = text.trim()
     if (!trimmed) return
-    onSubmit(trimmed, chosen)
+    onSubmit(name.trim() || 'anonymous', subject.trim() || '(no subject)', trimmed)
     onClose()
   }
 
@@ -82,65 +92,204 @@ function WriteNoteModal({ onSubmit, onClose }: { onSubmit: (text: string, bg: st
         animate={{ scale: 1, y: 0, opacity: 1 }}
         exit={{ scale: 0.92, y: 20, opacity: 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-        className="bg-parchment border-2 border-border rounded-sm shadow-[8px_8px_0_#2D2D2D] max-w-md w-full p-6"
+        className="retro-window max-w-sm w-full"
         onClick={e => e.stopPropagation()}
       >
-        <h3 className="font-display font-bold text-lg mb-4 lowercase">leave a note</h3>
-
-        {/* Sticky picker */}
-        <div className="flex gap-2 mb-4">
-          {STICKY_KEYS.map(k => (
-            <button
-              key={k}
-              onClick={() => setChosen(k)}
-              className={`w-10 h-10 rounded-sm overflow-hidden border-2 transition-all ${chosen === k ? 'border-border scale-110' : 'border-transparent opacity-60 hover:opacity-90'}`}
-            >
-              <img src={STICKY_IMGS[k]} alt={k} className="w-full h-full object-cover" />
-            </button>
-          ))}
+        <div className="retro-titlebar">Mail</div>
+        <div className="retro-menubar">
+          <span><u>D</u>isc</span>
+          <span><u>V</u>iew</span>
+          <span><u>O</u>ptions</span>
+          <span><u>H</u>elp</span>
         </div>
 
-        {/* Preview + textarea */}
-        <div className="relative mx-auto mb-4" style={{ width: 220, height: 220 }}>
-          <img
-            src={STICKY_IMGS[chosen]}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover rounded-sm"
-          />
+        <div className="p-4 flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <label className="mono text-xs w-16 flex-shrink-0">Name:</label>
+            <input
+              value={name}
+              onChange={e => setName(e.target.value.slice(0, 40))}
+              placeholder="anonymous"
+              className="retro-sunken flex-1 px-2 py-1 text-sm outline-none"
+              style={{ fontFamily: "'Space Mono', monospace" }}
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <label className="mono text-xs w-16 flex-shrink-0">Subject:</label>
+            <input
+              value={subject}
+              onChange={e => setSubject(e.target.value.slice(0, 60))}
+              placeholder="no subject"
+              className="retro-sunken flex-1 px-2 py-1 text-sm outline-none"
+              style={{ fontFamily: "'Space Mono', monospace" }}
+            />
+          </div>
+
           <textarea
             autoFocus
             value={text}
             onChange={e => setText(e.target.value.slice(0, maxLen))}
-            placeholder="type your confession..."
-            className="absolute inset-0 w-full h-full bg-transparent resize-none outline-none text-center"
+            placeholder="type your message..."
+            rows={5}
+            className="retro-sunken w-full px-2 py-2 text-sm outline-none resize-none"
+            style={{ fontFamily: "'Space Mono', monospace" }}
+          />
+
+          <div className="flex items-center justify-between gap-3">
+            <span className="mono text-xs text-muted">{text.length}/{maxLen}</span>
+            <div className="flex gap-2">
+              <button
+                onClick={send}
+                disabled={!text.trim()}
+                className="retro-raised px-4 py-1.5 mono text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                Send
+              </button>
+              <button onClick={onClose} className="retro-raised px-4 py-1.5 mono text-xs font-bold">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+/* ── Message camera — the note content lives inside the cleared-out LCD screen ── */
+const CAMERA_FRAME_W = 210
+const CAMERA_FRAME_H = CAMERA_FRAME_W * (1280 / 720)
+// Screen hole as a fraction of the full frame image, measured from the source photo
+const SCREEN_RECT = { left: '10%', top: '10.3125%', width: '76.667%', height: '55.547%' }
+
+const cameraNavBtnStyle: CSSProperties = {
+  width: 24,
+  height: 24,
+  borderRadius: 9999,
+  border: '1.5px solid rgba(255,255,255,0.6)',
+  color: '#fff',
+  background: 'rgba(255,255,255,0.08)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '0.75rem',
+}
+
+function MessageCamera({
+  notes,
+  startIdx,
+  startRevealed,
+  onClose,
+}: {
+  notes: Note[]
+  startIdx: number
+  startRevealed: boolean
+  onClose: () => void
+}) {
+  const [idx, setIdx] = useState(startIdx)
+  const [revealed, setRevealed] = useState(startRevealed)
+
+  const note = notes[idx]
+
+  function next() { setIdx(i => (i + 1) % notes.length) }
+  function prev() { setIdx(i => (i - 1 + notes.length) % notes.length) }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(3px)' }}
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.8, rotate: -4, opacity: 0 }}
+        animate={{ scale: 1, rotate: 0, opacity: 1 }}
+        exit={{ scale: 0.8, rotate: 4, opacity: 0 }}
+        transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+        className="flex flex-col items-center gap-4"
+        onClick={e => e.stopPropagation()}
+      >
+        <div style={{ position: 'relative', width: CAMERA_FRAME_W, height: CAMERA_FRAME_H }}>
+          <PagerCharms />
+
+          {/* Note content, sitting behind the frame's cleared-out screen hole */}
+          <div
             style={{
-              fontFamily: "'Lora', Georgia, serif",
-              fontSize: '0.78rem',
-              lineHeight: 1.55,
-              color: '#2D2417',
-              padding: '2.5rem 1.5rem 1rem',
+              position: 'absolute',
+              ...SCREEN_RECT,
+              zIndex: 1,
+              borderRadius: 14,
+              overflow: 'hidden',
+              background: 'linear-gradient(160deg, #0d1b2a, #1b2f47)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              textAlign: 'center',
+              padding: '10px 12px',
+              gap: 6,
             }}
+          >
+            {!revealed ? (
+              <button
+                onClick={() => setRevealed(true)}
+                className="flex flex-col items-center gap-2"
+                aria-label="Open messages"
+              >
+                <svg width="28" height="21" viewBox="0 0 34 26" fill="none">
+                  <rect x="1" y="1" width="32" height="24" rx="2" stroke="#fff" strokeWidth="2" fill="none" />
+                  <path d="M2 2 L17 15 L32 2" stroke="#fff" strokeWidth="2" fill="none" />
+                </svg>
+                <p className="mono text-[0.6rem] font-bold lowercase" style={{ color: '#fff' }}>
+                  you have {notes.length} message{notes.length !== 1 ? 's' : ''}
+                </p>
+              </button>
+            ) : (
+              <>
+                <p className="mono text-[0.5rem]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                  {idx + 1} / {notes.length}
+                </p>
+                <p className="font-display font-bold text-xs lowercase" style={{ color: '#fff' }}>
+                  {note.name}
+                </p>
+                <p className="mono text-[0.5rem] italic lowercase" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                  {note.subject}
+                </p>
+                <p className="font-body text-[0.65rem] leading-snug" style={{ color: '#e8f0f8' }}>
+                  {note.text}
+                </p>
+                <div className="flex items-center gap-4 mt-1">
+                  <button onClick={prev} style={cameraNavBtnStyle} aria-label="Previous message">&larr;</button>
+                  <button
+                    onClick={() => setRevealed(false)}
+                    className="mono"
+                    style={{ fontSize: '0.5rem', color: 'rgba(255,255,255,0.5)' }}
+                  >
+                    cover
+                  </button>
+                  <button onClick={next} style={cameraNavBtnStyle} aria-label="Next message">&rarr;</button>
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Camera frame overlay — transparent hole reveals the screen content behind it */}
+          <img
+            src="./assets/camera-frame.png"
+            alt=""
+            draggable={false}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 2, pointerEvents: 'none' }}
           />
         </div>
 
-        <div className="flex items-center justify-between gap-3">
-          <span className="mono text-xs text-muted">{text.length}/{maxLen}</span>
-          <div className="flex gap-2">
-            <button
-              onClick={onClose}
-              className="px-4 py-2 border-2 border-border rounded-sm font-display text-sm hover:bg-border/10 transition-colors"
-            >
-              cancel
-            </button>
-            <button
-              onClick={submit}
-              disabled={!text.trim()}
-              className="px-4 py-2 border-2 border-border bg-green/10 rounded-sm font-display font-semibold text-sm text-green-800 hover:bg-green/20 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              drop it in →
-            </button>
-          </div>
-        </div>
+        <button
+          onClick={onClose}
+          className="mono text-xs text-white/70 hover:text-white transition-colors"
+        >
+          put it back
+        </button>
       </motion.div>
     </motion.div>
   )
@@ -287,56 +436,71 @@ function HungryFish() {
   )
 }
 
-/* ── Main component ── */
-export default function ConfessionJar() {
-  const [dbNotes, setDbNotes] = useState<Note[]>([])
-  const allNotes = [...SEED_NOTES, ...dbNotes]
+/* ── Main component ──
+   postSlug: when set, this jar is scoped to one blog post's notes only.
+   When omitted, it shows/writes the general (post_slug is null) notes. ── */
+export default function ConfessionJar({ postSlug }: { postSlug?: string } = {}) {
+  const [allNotes, setAllNotes] = useState<Note[]>([])
 
-  const [viewIdx, setViewIdx] = useState<number | null>(null)
+  const [pagerOpen, setPagerOpen] = useState(false)
+  const [pagerStartIdx, setPagerStartIdx] = useState(0)
+  const [pagerStartRevealed, setPagerStartRevealed] = useState(false)
   const [writing, setWriting] = useState(false)
   const [justDropped, setJustDropped] = useState(false)
 
   useEffect(() => {
-    supabase
+    let query = supabase
       .from('confession_notes')
-      .select('id, text, bg')
+      .select('id, name, subject, text')
       .order('created_at', { ascending: true })
-      .then(({ data }) => { if (data) setDbNotes(data) })
-  }, [])
+
+    query = postSlug ? query.eq('post_slug', postSlug) : query.is('post_slug', null)
+
+    query.then(({ data, error }) => {
+      if (error) console.error('confession_notes query failed (has the post_slug migration been run?):', error)
+      if (data) {
+        setAllNotes(data.map(n => ({
+          ...n,
+          name: n.name || 'anonymous',
+          subject: n.subject || '(no subject)',
+        })))
+      }
+    })
+  }, [postSlug])
+
+  function openPagerFromStack() {
+    if (allNotes.length === 0) return
+    setPagerStartIdx(0)
+    setPagerStartRevealed(false)
+    setPagerOpen(true)
+  }
 
   function pullNote() {
-    const idx = Math.floor(Math.random() * allNotes.length)
-    setViewIdx(idx)
+    if (allNotes.length === 0) return
+    setPagerStartIdx(Math.floor(Math.random() * allNotes.length))
+    setPagerStartRevealed(true)
+    setPagerOpen(true)
   }
 
-  function nextNote() {
-    setViewIdx(i => i === null ? 0 : (i + 1) % allNotes.length)
-  }
-
-  function prevNote() {
-    setViewIdx(i => i === null ? 0 : (i - 1 + allNotes.length) % allNotes.length)
-  }
-
-  async function addNote(text: string, bg: string) {
+  async function addNote(name: string, subject: string, text: string) {
     const { data } = await supabase
       .from('confession_notes')
-      .insert({ text, bg })
-      .select('id, text, bg')
+      .insert({ name, subject, text, post_slug: postSlug ?? null })
+      .select('id, name, subject, text')
       .single()
-    if (data) setDbNotes(prev => [...prev, data])
+    if (data) setAllNotes(prev => [...prev, data])
     setJustDropped(true)
     setTimeout(() => setJustDropped(false), 2200)
   }
-
-  // Fan of notes peeking from bowl
-  const peekRotations = [-18, -6, 4, 14, -26]
 
   return (
     <div className="mt-12 flex flex-col items-center gap-6">
 
       {/* Title */}
       <div className="text-center">
-        <h3 className="font-display font-bold text-lg lowercase">the confession jar</h3>
+        <h3 className="font-display font-bold text-lg lowercase">
+          {postSlug ? 'notes on this post' : 'the message jar'}
+        </h3>
         <p className="mono text-xs text-muted mt-1">
           {allNotes.length} note{allNotes.length !== 1 ? 's' : ''} inside
         </p>
@@ -345,30 +509,28 @@ export default function ConfessionJar() {
       {/* Bowl + peeking notes */}
       <div className="relative flex flex-col items-center" style={{ width: 280 }}>
 
-        {/* Notes fanned behind bowl */}
-        <div className="absolute" style={{ bottom: 40, left: '50%', transform: 'translateX(-50%)' }}>
-          {allNotes.slice(0, 5).map((_, i) => (
-            <div
-              key={i}
-              className="absolute"
-              style={{
-                width: 60,
-                height: 70,
-                bottom: 0,
-                left: -30,
-                transform: `rotate(${peekRotations[i]}deg) translateY(-${18 + i * 4}px)`,
-                zIndex: i,
-              }}
-            >
-              <img
-                src={STICKY_IMGS[allNotes[i].bg]}
-                alt=""
-                className="w-full h-full object-cover rounded-sm opacity-80"
-                style={{ boxShadow: '1px 1px 4px rgba(0,0,0,0.25)' }}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Camera peeking from bowl — click to open the pager */}
+        <button
+          onClick={openPagerFromStack}
+          aria-label="Read messages"
+          className="absolute"
+          style={{
+            width: 110,
+            height: 110,
+            bottom: 30,
+            left: '50%',
+            transform: 'translateX(-50%) rotate(-6deg)',
+            zIndex: 1,
+          }}
+        >
+          <img
+            src={NOTE_ICON}
+            alt=""
+            className="w-full h-full object-contain"
+            style={{ filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.3))' }}
+            draggable={false}
+          />
+        </button>
 
         {/* Crab rave */}
         <CrabRave />
@@ -379,7 +541,7 @@ export default function ConfessionJar() {
         {/* Fishbowl */}
         <img
           src="./assets/fishbowl.png"
-          alt="confession jar"
+          alt="message jar"
           className="relative z-10"
           style={{ width: 220, objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.18))' }}
           draggable={false}
@@ -394,11 +556,9 @@ export default function ConfessionJar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7, ease: 'easeIn' }}
               className="absolute z-20 top-0"
-              style={{ pointerEvents: 'none' }}
+              style={{ pointerEvents: 'none', width: 40, height: 40 }}
             >
-              <div className="w-10 h-10 rounded-sm overflow-hidden shadow-md">
-                <img src={STICKY_IMGS[dbNotes[dbNotes.length - 1]?.bg ?? 'sticky1']} className="w-full h-full object-cover" alt="" />
-              </div>
+              <img src={NOTE_ICON} alt="" className="w-full h-full object-contain" draggable={false} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -408,7 +568,8 @@ export default function ConfessionJar() {
       <div className="flex gap-3">
         <button
           onClick={pullNote}
-          className="skill-badge hover:shadow-[3px_3px_0_#5BC8E8] transition-shadow text-sm"
+          disabled={allNotes.length === 0}
+          className="skill-badge hover:shadow-[3px_3px_0_#5BC8E8] transition-shadow text-sm disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none"
         >
           pull one out
         </button>
@@ -420,61 +581,22 @@ export default function ConfessionJar() {
         </button>
       </div>
 
-      {/* Note viewer modal */}
+      {/* Message camera */}
       <AnimatePresence>
-        {viewIdx !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(3px)' }}
-            onClick={() => setViewIdx(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.8, rotate: -6, opacity: 0 }}
-              animate={{ scale: 1, rotate: 0, opacity: 1 }}
-              exit={{ scale: 0.8, rotate: 6, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-              className="flex flex-col items-center gap-5"
-              onClick={e => e.stopPropagation()}
-            >
-              <StickyNote note={allNotes[viewIdx]} rotation={-1 + Math.sin(viewIdx) * 3} />
-
-              {/* Nav */}
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={prevNote}
-                  className="w-9 h-9 border-2 border-white/60 rounded-full text-white flex items-center justify-center hover:bg-white/10 transition-colors"
-                >
-                  ←
-                </button>
-                <span className="mono text-xs text-white/70">
-                  {viewIdx + 1} / {allNotes.length}
-                </span>
-                <button
-                  onClick={nextNote}
-                  className="w-9 h-9 border-2 border-white/60 rounded-full text-white flex items-center justify-center hover:bg-white/10 transition-colors"
-                >
-                  →
-                </button>
-              </div>
-
-              <button
-                onClick={() => setViewIdx(null)}
-                className="mono text-xs text-white/50 hover:text-white/80 transition-colors"
-              >
-                put it back
-              </button>
-            </motion.div>
-          </motion.div>
+        {pagerOpen && (
+          <MessageCamera
+            notes={allNotes}
+            startIdx={pagerStartIdx}
+            startRevealed={pagerStartRevealed}
+            onClose={() => setPagerOpen(false)}
+          />
         )}
       </AnimatePresence>
 
-      {/* Write modal */}
+      {/* Mail compose window */}
       <AnimatePresence>
         {writing && (
-          <WriteNoteModal
+          <MailComposeModal
             onSubmit={addNote}
             onClose={() => setWriting(false)}
           />

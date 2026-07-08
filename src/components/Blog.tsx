@@ -112,6 +112,8 @@ function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
           {post.content}
         </ReactMarkdown>
       </div>
+
+      <ConfessionJar postSlug={post.slug} />
     </motion.div>
   )
 }
