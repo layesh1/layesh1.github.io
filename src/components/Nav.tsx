@@ -31,23 +31,28 @@ const SPARKLE_SLOTS: { style: CSSProperties; size: number; delay: number }[] = [
 
 function SparkleBurst({ active }: { active: boolean }) {
   return (
-    <AnimatePresence>
-      {active &&
-        SPARKLE_SLOTS.map((slot, i) => (
-          <motion.img
-            key={i}
-            src={SPARKLE_SPRITES[i % SPARKLE_SPRITES.length]}
-            alt=""
-            draggable={false}
-            className="absolute pointer-events-none select-none"
-            style={{ ...slot.style, width: slot.size, height: 'auto' }}
-            initial={{ opacity: 0, scale: 0, rotate: 0 }}
-            animate={{ opacity: [0, 1, 1, 0], scale: [0, 1.3, 1, 0.7], rotate: [0, 15, -15, 0] }}
-            exit={{ opacity: 0, scale: 0 }}
-            transition={{ duration: 0.9, delay: slot.delay, ease: 'easeOut' }}
-          />
-        ))}
-    </AnimatePresence>
+    <>
+      {SPARKLE_SLOTS.map((slot, i) => (
+        <motion.img
+          key={i}
+          src={SPARKLE_SPRITES[i % SPARKLE_SPRITES.length]}
+          alt=""
+          draggable={false}
+          className="absolute pointer-events-none select-none"
+          style={{ ...slot.style, width: slot.size, height: 'auto' }}
+          animate={
+            active
+              ? { opacity: [0, 1, 1, 0.6, 1], scale: [0, 1.3, 1, 0.9, 1], rotate: [0, 15, -15, 8, 0] }
+              : { opacity: 0, scale: 0, rotate: 0 }
+          }
+          transition={
+            active
+              ? { duration: 1.4, repeat: Infinity, delay: slot.delay, ease: 'easeInOut' }
+              : { duration: 0.2 }
+          }
+        />
+      ))}
+    </>
   )
 }
 
@@ -94,7 +99,12 @@ export default function Nav() {
           {links.map(l => {
             const isExtra = l.href === '/blog'
             return (
-              <li key={l.href} className="relative">
+              <li
+                key={l.href}
+                className="relative"
+                onMouseEnter={isExtra ? () => setSparkling(true) : undefined}
+                onMouseLeave={isExtra ? () => setSparkling(false) : undefined}
+              >
                 <Link
                   to={l.href}
                   onClick={isExtra ? triggerSparkle : undefined}

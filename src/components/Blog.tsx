@@ -156,9 +156,6 @@ export default function Blog() {
               <p className="mono text-muted text-xs mb-2 tracking-widest">writing & thoughts</p>
               <h2 className="section-title">extra,<br />extra</h2>
               <div className="mt-3 h-1 w-20 bg-border rounded-full" />
-              <p className="font-body text-muted text-sm mt-4 max-w-md italic">
-                Note: who is genuinely reading these other than my close friends
-              </p>
             </motion.div>
           )}
         </AnimatePresence>

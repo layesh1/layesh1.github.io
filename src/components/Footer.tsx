@@ -40,15 +40,6 @@ export default function Footer() {
           </a>
         </div>
       </div>
-
-      <div className="max-w-5xl mx-auto mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-        <p className="mono text-xs text-muted">
-          © {new Date().getFullYear()} Lena Ayesh
-        </p>
-        <p className="mono text-xs text-muted">
-          built with React + Vite · hosted on GitHub Pages
-        </p>
-      </div>
     </footer>
   )
 }

@@ -241,6 +241,32 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="relative w-full max-w-xs mx-auto"
           >
+            {/* Jellyfish swimming around the photo */}
+            <motion.img
+              src="/assets/jellyfish/jellyfish-1.png"
+              alt=""
+              draggable={false}
+              className="absolute -top-10 -left-12 w-20 opacity-90 pointer-events-none select-none z-10"
+              animate={{ y: [0, -8, 0], rotate: [-4, 4, -4] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.img
+              src="/assets/jellyfish/jellyfish-2.png"
+              alt=""
+              draggable={false}
+              className="absolute -top-8 -right-14 w-16 opacity-90 pointer-events-none select-none z-10"
+              animate={{ y: [0, 10, 0], rotate: [3, -3, 3] }}
+              transition={{ duration: 5.2, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+            />
+            <motion.img
+              src="/assets/jellyfish/jellyfish-3.png"
+              alt=""
+              draggable={false}
+              className="absolute -bottom-10 -left-10 w-20 opacity-100 pointer-events-none select-none z-10"
+              animate={{ y: [0, -6, 0], rotate: [-3, 3, -3] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+            />
+
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-5 tape-blue rounded-sm rotate-[-2deg] z-10" />
             <div className="absolute -top-3 left-1/4 w-12 h-5 tape-green rounded-sm rotate-[3deg] z-10" />
             <div
