@@ -35,7 +35,7 @@ const entries: TimelineEntry[] = [
       'Conducted structured analysis comparing private-sector and government OSINT architectures across legal authorities, collection methods, and operational constraints.',
       'Designed a full OSINT organization focused on satellite imagery collection \u2014 including a detailed budget, geopolitical risk assessment, and operational business plan.',
     ],
-    link: { label: 'letter of recommendation', href: './assets/odni-recommendation.pdf' },
+    link: { label: 'letter of recommendation', href: '/assets/odni-recommendation.pdf' },
   },
   {
     period: "summer '23",

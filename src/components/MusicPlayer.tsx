@@ -8,7 +8,7 @@ const PLAYLIST_NAME = 'once bitten... twice shy'
 function FolderIcon() {
   return (
     <motion.img
-      src="./assets/music-folder.png"
+      src="/assets/music-folder.png"
       alt=""
       className="w-16 h-16 object-contain"
       draggable={false}
@@ -74,7 +74,7 @@ export default function MusicPlayer() {
               transition={{ duration: 0.25 }}
             >
               <motion.img
-                src="./assets/music-notes.png"
+                src="/assets/music-notes.png"
                 alt=""
                 draggable={false}
                 className="w-16"

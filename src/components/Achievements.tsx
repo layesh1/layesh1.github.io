@@ -15,6 +15,14 @@ const awards = [
 
 const featured = [
   {
+    type: 'Grant',
+    headline: 'Fulbright Greece-Turkey Joint Research Award',
+    org: 'Fulbright Greece — Sept 2026 to Jan 2027',
+    excerpt:
+      'Awarded a Fulbright Greece-Turkey Joint Research grant to study environmental security and geospatial technology at the National and Kapodistrian University of Athens and Istanbul Technical University — comparing satellite-based forest fire detection and monitoring systems across both NATO allies, including detection accuracy, emergency response, and economic impact analysis.',
+    href: 'https://www.fulbright.gr/en/grantees/us-grantees-profiles/fulbright-student-program/greece-turkey-fulbright-joint-research/2037-lena-ayesh',
+  },
+  {
     type: 'Press',
     headline: 'Investing in the Future of the IC Workforce — Undergraduate',
     org: 'Intelligence and National Security Alliance (INSA)',

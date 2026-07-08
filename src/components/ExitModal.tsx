@@ -101,7 +101,7 @@ function ExitConfirm({ url, onClose }: { url: string; onClose: () => void }) {
         {/* Monkey photo */}
         <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border shadow-md">
           <img
-            src="./assets/monkey.jpg"
+            src="/assets/monkey.jpg"
             alt="wait!"
             className="w-full h-full object-cover"
             style={{ objectPosition: 'center 20%' }}

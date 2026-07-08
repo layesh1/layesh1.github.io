@@ -3,18 +3,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 /* ── Skills — actual brand colors ── */
 const skills = [
-  { label: 'Python',          color: '#3776AB', logo: './assets/logos/python.svg',         short: 'Py'  },
-  { label: 'R',               color: '#276DC3', logo: './assets/logos/r.svg',              short: 'R'   },
+  { label: 'Python',          color: '#3776AB', logo: '/assets/logos/python.svg',         short: 'Py'  },
+  { label: 'R',               color: '#276DC3', logo: '/assets/logos/r.svg',              short: 'R'   },
   { label: 'SQL',             color: '#CC2927', logo: null,                                short: 'SQL' },
   { label: 'Stata',           color: '#1A3A5C', logo: null,                                short: 'St'  },
   { label: 'SAS',             color: '#0070C0', logo: null,                                short: 'SAS' },
-  { label: 'KNIME',           color: '#C8A000', logo: './assets/logos/knime.svg',          short: 'KN'  },
-  { label: 'Java',            color: '#ED8B00', logo: './assets/logos/java.svg',           short: 'Jv'  },
-  { label: 'Excel',           color: '#217346', logo: './assets/logos/microsoftexcel.svg', short: 'XL'  },
-  { label: 'Figma',           color: '#F24E1E', logo: './assets/logos/figma.svg',          short: 'Fig' },
-  { label: 'Vercel',          color: '#1A1A1A', logo: './assets/logos/vercel.svg',         short: '▲'   },
-  { label: 'DaVinci Resolve', color: '#233A51', logo: './assets/logos/davinciresolve.svg', short: 'DV'  },
-  { label: 'React/JS',        color: '#087EA4', logo: './assets/logos/react.svg',          short: 'Re'  },
+  { label: 'KNIME',           color: '#C8A000', logo: '/assets/logos/knime.svg',          short: 'KN'  },
+  { label: 'Java',            color: '#ED8B00', logo: '/assets/logos/java.svg',           short: 'Jv'  },
+  { label: 'Excel',           color: '#217346', logo: '/assets/logos/microsoftexcel.svg', short: 'XL'  },
+  { label: 'Figma',           color: '#F24E1E', logo: '/assets/logos/figma.svg',          short: 'Fig' },
+  { label: 'Vercel',          color: '#1A1A1A', logo: '/assets/logos/vercel.svg',         short: '▲'   },
+  { label: 'DaVinci Resolve', color: '#233A51', logo: '/assets/logos/davinciresolve.svg', short: 'DV'  },
+  { label: 'React/JS',        color: '#087EA4', logo: '/assets/logos/react.svg',          short: 'Re'  },
 ]
 
 /* Badge positions on a circular pie — equally spaced */
@@ -37,7 +37,7 @@ function SkillPieChart() {
         {/* Real pie illustration */}
         {/* ↓ To move just the pie image: change the numbers in translate(Xpx, Ypx) */}
         <img
-          src="./assets/pie-transparent.png"
+          src="/assets/pie-transparent.png"
           alt="pie chart"
           className="absolute inset-0 w-full h-full"
           style={{
@@ -152,7 +152,7 @@ function DraggableLaceCard() {
     >
       {/* Lace frame */}
       <img
-        src="./assets/lace-frame-transparent.png"
+        src="/assets/lace-frame-transparent.png"
         className="absolute pointer-events-none"
         style={{
           top: '-52px',
@@ -248,7 +248,7 @@ export default function Home() {
               style={{ aspectRatio: '3/4' }}
             >
               <img
-                src="./assets/lena.jpg"
+                src="/assets/lena.jpg"
                 alt="Lena Ayesh"
                 className="w-full h-full object-cover object-top"
               />
@@ -339,18 +339,6 @@ export default function Home() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll cue */}
-      <motion.div
-        animate={{ y: [0, 6, 0] }}
-        transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-muted"
-      >
-        <span className="mono text-xs">scroll</span>
-        <svg width="16" height="16" viewBox="0 0 16 16">
-          <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-        </svg>
-      </motion.div>
     </section>
   )
 }

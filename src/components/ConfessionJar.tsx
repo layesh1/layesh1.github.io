@@ -10,16 +10,16 @@ const supabase = createClient(
 type Note = { id: string; name: string; subject: string; text: string }
 
 /* ── General note icon — the rose-gold camera peeking out of the fishbowl ── */
-const NOTE_ICON = './assets/note-icon.png'
+const NOTE_ICON = '/assets/note-icon.png'
 
 /* ── Floating charm accents around the pager screen ── */
 const CHARM_IMAGES = [
-  './assets/charms/notes-heart.png',
-  './assets/charms/flower-1.png',
-  './assets/charms/flower-2.png',
-  './assets/charms/vine-1.png',
-  './assets/charms/vine-2.png',
-  './assets/charms/border-arch.png',
+  '/assets/charms/notes-heart.png',
+  '/assets/charms/flower-1.png',
+  '/assets/charms/flower-2.png',
+  '/assets/charms/vine-1.png',
+  '/assets/charms/vine-2.png',
+  '/assets/charms/border-arch.png',
 ]
 
 const CHARM_SLOTS = [
@@ -277,7 +277,7 @@ function MessageCamera({
 
           {/* Camera frame overlay — transparent hole reveals the screen content behind it */}
           <img
-            src="./assets/camera-frame.png"
+            src="/assets/camera-frame.png"
             alt=""
             draggable={false}
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 2, pointerEvents: 'none' }}
@@ -299,7 +299,7 @@ function MessageCamera({
 function CrabRave() {
   const [hovered, setHovered] = useState(false)
   const audioRef = useState(() => {
-    const a = new Audio('./assets/crab-rave.mp3')
+    const a = new Audio('/assets/crab-rave.mp3')
     a.loop = true
     a.volume = 0.35
     return a
@@ -354,7 +354,7 @@ function CrabRave() {
       </AnimatePresence>
 
       <motion.img
-        src="./assets/crab.png"
+        src="/assets/crab.png"
         alt="crab"
         animate={{
           width: hovered ? 110 : 36,
@@ -425,7 +425,7 @@ function HungryFish() {
       </AnimatePresence>
 
       <motion.img
-        src="./assets/fish.png"
+        src="/assets/fish.png"
         alt="fish"
         animate={{ width: hovered ? 120 : 38 }}
         transition={{ type: 'spring', stiffness: 260, damping: 18 }}
@@ -540,7 +540,7 @@ export default function ConfessionJar({ postSlug }: { postSlug?: string } = {}) 
 
         {/* Fishbowl */}
         <img
-          src="./assets/fishbowl.png"
+          src="/assets/fishbowl.png"
           alt="message jar"
           className="relative z-10"
           style={{ width: 220, objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.18))' }}

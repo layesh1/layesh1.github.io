@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkBreaks from 'remark-breaks'
 import { posts, type Post } from '../posts'
@@ -42,7 +43,7 @@ function PostCard({ post, onClick, index }: { post: Post; onClick: () => void; i
   )
 }
 
-function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
+function PostView({ post }: { post: Post }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -51,12 +52,12 @@ function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
       transition={{ duration: 0.3 }}
       className="max-w-2xl mx-auto"
     >
-      <button
-        onClick={onBack}
+      <Link
+        to="/blog"
         className="mono text-xs text-muted hover:text-dark transition-colors mb-8 flex items-center gap-2"
       >
         ← back to blog
-      </button>
+      </Link>
 
       <div className="flex items-center gap-3 mb-4">
         <span
@@ -119,7 +120,9 @@ function PostView({ post, onBack }: { post: Post; onBack: () => void }) {
 }
 
 export default function Blog() {
-  const [activePost, setActivePost] = useState<Post | null>(null)
+  const navigate = useNavigate()
+  const { slug } = useParams()
+  const activePost = slug ? posts.find(p => p.slug === slug) ?? null : null
   const titleRef = useRef(null)
   const titleInView = useInView(titleRef, { once: true })
 
@@ -151,7 +154,7 @@ export default function Blog() {
               className="mb-14"
             >
               <p className="mono text-muted text-xs mb-2 tracking-widest">writing & thoughts</p>
-              <h2 className="section-title">blog &<br />miscellaneous</h2>
+              <h2 className="section-title">extra,<br />extra</h2>
               <div className="mt-3 h-1 w-20 bg-border rounded-full" />
               <p className="font-body text-muted text-sm mt-4 max-w-md italic">
                 Note: who is genuinely reading these other than my close friends
@@ -163,11 +166,7 @@ export default function Blog() {
         {/* Post list / post view */}
         <AnimatePresence mode="wait">
           {activePost ? (
-            <PostView
-              key={activePost.slug}
-              post={activePost}
-              onBack={() => setActivePost(null)}
-            />
+            <PostView key={activePost.slug} post={activePost} />
           ) : (
             <motion.div
               key="list"
@@ -181,7 +180,7 @@ export default function Blog() {
                     key={p.slug}
                     post={p}
                     index={i}
-                    onClick={() => setActivePost(p)}
+                    onClick={() => navigate(`/blog/${p.slug}`)}
                   />
                 ))}
 

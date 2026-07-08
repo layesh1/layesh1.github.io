@@ -26,7 +26,7 @@ const projects: Project[] = [
     advisor:
       'Advised by James Walsh, Program Director for the Security & Preparedness Program at the National Science Foundation; Professor of Political Science, Data Science, and Public Policy.',
     tags: ['Policy Research', 'Data Coding', 'OSINT'],
-    pdf: './assets/rhrv-paper.pdf',
+    pdf: '/assets/rhrv-paper.pdf',
   },
   {
     id: 'war-on-drugs',
@@ -38,7 +38,7 @@ const projects: Project[] = [
     advisor:
       "Advised by Dr. Charles Houck, Program Director of UNC Charlotte's International Studies Program.",
     tags: ['Intelligence Studies', 'Ethics', 'Mixed Methods'],
-    pdf: './assets/war-on-drugs.pdf',
+    pdf: '/assets/war-on-drugs.pdf',
   },
   {
     id: 'affective-polarization',
@@ -50,7 +50,7 @@ const projects: Project[] = [
     advisor:
       'Advised by Dr. Jason Giersch, Department of Political Science and Public Administration, UNC Charlotte.',
     tags: ['Political Psychology', 'Survey Analysis', 'OLS Regression'],
-    pdf: './assets/affective-polarization.pdf',
+    pdf: '/assets/affective-polarization.pdf',
   },
   {
     id: 'minutes-matter',
@@ -62,7 +62,7 @@ const projects: Project[] = [
     tags: ['Python', 'React', 'Machine Learning', 'AI Agents', 'Public Safety'],
     repo: 'https://github.com/layesh1/wildfire-app',
     website: 'https://www.minutesmatterapp.org/',
-    pdf: './assets/minutes-matter.pdf',
+    pdf: '/assets/minutes-matter.pdf',
   },
 ]
 
@@ -289,7 +289,7 @@ export default function Research() {
           className="mb-14"
         >
           <p className="mono text-muted text-xs mb-2 tracking-widest">publications & projects</p>
-          <h2 className="section-title">other<br />research</h2>
+          <h2 className="section-title">research</h2>
           <div className="mt-3 h-1 w-20 bg-border rounded-full" />
         </motion.div>
 
